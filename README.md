@@ -1,18 +1,18 @@
-- 如何製作memory matching game？
+# 如何製作memory matching game？
 - 背景：
 - 當2張卡抽出相同的圖案時就是成功的第一步
 - 而把所有卡抽出後才是成功結束整個遊戲
-- 1.HTML架構
+# 1.HTML架構
 - 在創建網頁標題為memory-matching-game
 - 在網頁中添加主要區塊，要有4x4的可點擊網格
 - 記住加入header（標題）和footer（頁腳）
-- 2.CSS樣式
+# 2.CSS樣式
 - 為所有元素設定指定字體
 - 為網格設定紅色背景和點擊指示符
 - 網格區塊居中顯示，每個網格項目平均分佈
 - 設定區塊裏的圖案/emo😀
 - 遊戲版面要置中對齊
-- 3.Javascript邏輯
+# 3.Javascript邏輯
 - 初始化：將變數clickCount預設為0
 - 一開始，玩家會看見memory matching game 的版面。玩家要按下區塊=（抽卡）
 - 當玩家隨機點擊第一個跟第二個區塊時，區塊會顯示圖案
