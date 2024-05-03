@@ -36,6 +36,11 @@
             align-items: center;
             background-color: gray;
             cursor: pointer;
+
+        .myButton {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
         }
     </style>
 </head>
@@ -63,7 +68,7 @@
             <div id="grid" class="grid-item"></div>
         </div>
         <h1 style="text-align:center;">Game message:</h1>
-        <button onclick="myFunction()">restart</button>
+        <button id="myButton">restart game</button>
     </main>
     <footer>
         <b>5c22Memory match game</b>
