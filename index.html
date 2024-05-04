@@ -36,11 +36,38 @@
             align-items: center;
             background-color: gray;
             cursor: pointer;
+        }
 
-        .myButton {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
+        .yellow {
+            background-color: yellow;
+        }
+
+        .green {
+            background-color: green;
+        }
+
+        .blue {
+            background-color: blue;
+        }
+
+        .red {
+            background-color: red;
+        }
+
+        .pink {
+            background-color: pink;
+        }
+
+        .orange {
+            background-color: orange;
+        }
+
+        .purple {
+            background-color: purple;
+        }
+
+        .brown {
+            background-color: brown;
         }
     </style>
 </head>
@@ -51,37 +78,49 @@
     <main>
         <div class="grid-container">
             <div id="grid" class="grid-item"></div>
-            <div id="grid" class="grid-item"></div>
-            <div id="grid" class="grid-item"></div>
-            <div id="grid" class="grid-item"></div>
-            <div id="grid" class="grid-item"></div>
-            <div id="grid" class="grid-item"></div>
-            <div id="grid" class="grid-item"></div>
-            <div id="grid" class="grid-item"></div>
-            <div id="grid" class="grid-item"></div>
-            <div id="grid" class="grid-item"></div>
-            <div id="grid" class="grid-item"></div>
-            <div id="grid" class="grid-item"></div>
-            <div id="grid" class="grid-item"></div>
-            <div id="grid" class="grid-item"></div>
-            <div id="grid" class="grid-item"></div>
-            <div id="grid" class="grid-item"></div>
+            <div id="grid2" class="grid-item"></div>
+            <div id="grid3" class="grid-item"></div>
+            <div id="grid4" class="grid-item"></div>
+            <div id="grid5" class="grid-item"></div>
+            <div id="grid6" class="grid-item"></div>
+            <div id="grid7" class="grid-item"></div>
+            <div id="grid8" class="grid-item"></div>
+            <div id="grid9" class="grid-item"></div>
+            <div id="grid10" class="grid-item"></div>
+            <div id="grid11" class="grid-item"></div>
+            <div id="grid12" class="grid-item"></div>
+            <div id="grid13" class="grid-item"></div>
+            <div id="grid14" class="grid-item"></div>
+            <div id="grid15" class="grid-item"></div>
+            <div id="grid16" class="grid-item"></div>
         </div>
-        <h1 style="text-align:center;">Game message:</h1>
-        <button id="myButton">restart game</button>
+        <h1 style="text-align:center;">Game message: </h1>
+        <button onclick="myFunction()">restart</button>
     </main>
     <footer>
         <b>5c22Memory match game</b>
     </footer>
     <script>
-        var clickCount = document.getElementById("grid");
-        document.getElementById("grid").onclick = function() {myFunction()};
+        function toggleGridSelection(event) {
+            var grid = event.target;
+            var clickCount = grid.Attribute('data-click-count') || 0;
+            clickCount = parseInt(clickCount, 16);
+            const setBg = () => {
+                const randomColor = Math.floor(Math.random()*16777215).toString(8);
+                document.body.style.backgroundColor = "#" + randomColor;
+                color.innerHTML = "#" + randomColor;
+            }
 
-        function myFunction() {
-            if(document.getElementById("grid").onclick = function() {myFunction()}) {
-                document.getElementById("grid").innerHTML = "a" ;
-            };
-            //document.getElementById("grid").innerHTML = "a" ;
+            grid.addEventListener("click", setBg);
+            setBg();
+            //grid.classList.remove('yellow');
+            //grid.classList.remove('green');
+            //grid.classList.remove('blue');
+            //grid.classList.remove('red');
+            //grid.classList.remove('pink');
+           //grid.classList.remove('orange');
+            //grid.classList.remove('purple');
+            //grid.classList.remove('brown');
         }
     </script>
 </body>
