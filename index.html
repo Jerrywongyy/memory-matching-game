@@ -20,7 +20,7 @@
             padding: 10px 0;
         }
 
-        .grid-container {
+        .gridcontainer {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             grid-gap: 10px;
@@ -28,7 +28,7 @@
             margin: auto;
         }
 
-        .grid-item {
+        .grid {
             display: grid;
             width: 100px;
             height: 100px;
@@ -38,37 +38,6 @@
             cursor: pointer;
         }
 
-        .yellow {
-            background-color: yellow;
-        }
-
-        .green {
-            background-color: green;
-        }
-
-        .blue {
-            background-color: blue;
-        }
-
-        .red {
-            background-color: red;
-        }
-
-        .pink {
-            background-color: pink;
-        }
-
-        .orange {
-            background-color: orange;
-        }
-
-        .purple {
-            background-color: purple;
-        }
-
-        .brown {
-            background-color: brown;
-        }
     </style>
 </head>
 <body>
@@ -76,23 +45,23 @@
         <h1>5c22Memory match game</h1>       
     </header>
     <main>
-        <div class="grid-container">
-            <div id="grid" class="grid-item"></div>
-            <div id="grid2" class="grid-item"></div>
-            <div id="grid3" class="grid-item"></div>
-            <div id="grid4" class="grid-item"></div>
-            <div id="grid5" class="grid-item"></div>
-            <div id="grid6" class="grid-item"></div>
-            <div id="grid7" class="grid-item"></div>
-            <div id="grid8" class="grid-item"></div>
-            <div id="grid9" class="grid-item"></div>
-            <div id="grid10" class="grid-item"></div>
-            <div id="grid11" class="grid-item"></div>
-            <div id="grid12" class="grid-item"></div>
-            <div id="grid13" class="grid-item"></div>
-            <div id="grid14" class="grid-item"></div>
-            <div id="grid15" class="grid-item"></div>
-            <div id="grid16" class="grid-item"></div>
+        <div class="gridcontainer" id="gridcontainer">
+            <div class="grid" data-grid ></div>
+            <div class="grid" data-grid ></div>
+            <div class="grid" data-grid ></div>
+            <div class="grid" data-grid ></div>
+            <div class="grid" data-grid ></div>
+            <div class="grid" data-grid ></div>
+            <div class="grid" data-grid ></div>
+            <div class="grid" data-grid ></div>
+            <div class="grid" data-grid ></div>
+            <div class="grid" data-grid ></div>
+            <div class="grid" data-grid ></div>
+            <div class="grid" data-grid ></div>
+            <div class="grid" data-grid ></div>
+            <div class="grid" data-grid ></div>
+            <div class="grid" data-grid ></div>
+            <div class="grid" data-grid ></div>
         </div>
         <h1 style="text-align:center;">Game message: </h1>
         <button onclick="myFunction()">restart</button>
@@ -101,27 +70,19 @@
         <b>5c22Memory match game</b>
     </footer>
     <script>
-        function toggleGridSelection(event) {
-            var grid = event.target;
-            var clickCount = grid.Attribute('data-click-count') || 0;
-            clickCount = parseInt(clickCount, 16);
-            const setBg = () => {
-                const randomColor = Math.floor(Math.random()*16777215).toString(8);
-                document.body.style.backgroundColor = "#" + randomColor;
-                color.innerHTML = "#" + randomColor;
-            }
-
-            grid.addEventListener("click", setBg);
-            setBg();
-            //grid.classList.remove('yellow');
-            //grid.classList.remove('green');
-            //grid.classList.remove('blue');
-            //grid.classList.remove('red');
-            //grid.classList.remove('pink');
-           //grid.classList.remove('orange');
-            //grid.classList.remove('purple');
-            //grid.classList.remove('brown');
+    function toggleGridSelection(event) {   
+        var matchCount = grid.getAttribute('data-match-count') || 0;
+        matchCount = parseInt(matchCount, 16);
+        const MATCH_EMOJI = ["😀", "🥰", "😎", "🥳", "🤯", "🤩", "🥶", "🤓"];
+        grid.classList.remove(MATCH_EMOJI);
+        grid.classList.add(MATCH_EMOJI);
+                
+        matchCount += 1;
+        grid.setAttribute('data-match-count',matchCount.toString());
         }
+        document.querySelectorAll('.grid').forEach(function (grid) {
+            grid.addEventListener('click', toggleGridSelection);
+        });
     </script>
 </body>
 </html>
