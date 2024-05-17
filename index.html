@@ -20,7 +20,7 @@
             padding: 10px 0;
         }
 
-        .gridcontainer {
+        .grid-container {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             grid-gap: 10px;
@@ -28,7 +28,7 @@
             margin: auto;
         }
 
-        .grid {
+        .grid-item {
             display: grid;
             width: 100px;
             height: 100px;
@@ -45,23 +45,23 @@
         <h1>5c22Memory match game</h1>       
     </header>
     <main>
-        <div class="gridcontainer" id="gridcontainer">
-            <div class="grid" data-grid ></div>
-            <div class="grid" data-grid ></div>
-            <div class="grid" data-grid ></div>
-            <div class="grid" data-grid ></div>
-            <div class="grid" data-grid ></div>
-            <div class="grid" data-grid ></div>
-            <div class="grid" data-grid ></div>
-            <div class="grid" data-grid ></div>
-            <div class="grid" data-grid ></div>
-            <div class="grid" data-grid ></div>
-            <div class="grid" data-grid ></div>
-            <div class="grid" data-grid ></div>
-            <div class="grid" data-grid ></div>
-            <div class="grid" data-grid ></div>
-            <div class="grid" data-grid ></div>
-            <div class="grid" data-grid ></div>
+        <div class="grid-container" id="grid-container">
+            <div id="grid1" class="grid-item"></div>
+            <div id="grid2" class="grid-item"></div>
+            <div id="grid3" class="grid-item"></div>
+            <div id="grid4" class="grid-item"></div>
+            <div id="grid5" class="grid-item"></div>
+            <div id="grid6" class="grid-item"></div>
+            <div id="grid7" class="grid-item"></div>
+            <div id="grid8" class="grid-item"></div>
+            <div id="grid9" class="grid-item"></div>
+            <div id="grid10" class="grid-item"></div>
+            <div id="grid11" class="grid-item"></div>
+            <div id="grid12" class="grid-item"></div>
+            <div id="grid13" class="grid-item"></div>
+            <div id="grid14" class="grid-item"></div>
+            <div id="grid15" class="grid-item"></div>
+            <div id="grid16" class="grid-item"></div>
         </div>
         <h1 style="text-align:center;">Game message: </h1>
         <button onclick="myFunction()">restart</button>
@@ -70,19 +70,25 @@
         <b>5c22Memory match game</b>
     </footer>
     <script>
-    function toggleGridSelection(event) {   
-        var matchCount = grid.getAttribute('data-match-count') || 0;
-        matchCount = parseInt(matchCount, 16);
-        const MATCH_EMOJI = ["😀", "🥰", "😎", "🥳", "🤯", "🤩", "🥶", "🤓"];
-        grid.classList.remove(MATCH_EMOJI);
-        grid.classList.add(MATCH_EMOJI);
-                
-        matchCount += 1;
-        grid.setAttribute('data-match-count',matchCount.toString());
+        const emojis = ["😀", "🥰", "😎", "🥳", "🤯", "🤩", "🥶", "🤓"];
+        const cards = [...emojis, ...emojis];
+        var matchCount = 0;
+        //const showcard = ["😀", "🥰", "😎", "🥳", "🤯", "🤩", "🥶", "🤓"];
+        function toggleGridSelection(event) {
+            var grid = event.target;
+            var matchCount = grid.getAttribute('data-click-count') || 0;
+            matchCount = parseInt(matchCount, 16);
+            grid.classList.remove('showcard');
+            switch (matchCount) {
+                case 0:
+                    grid.classList.add('showcard');
+                    break;
+                case 1:
+                    matchCount = -1;
+                    break;
+            }
+
         }
-        document.querySelectorAll('.grid').forEach(function (grid) {
-            grid.addEventListener('click', toggleGridSelection);
-        });
     </script>
 </body>
 </html>
