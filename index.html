@@ -1,94 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memory match game</title>
-    <style>
-        * {
-            font-family: Arial, Helvetica, sans-serif;
-        }
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>5C22Memory match game</title>
+   <style>
+       * {
+   font-family: Georgia, 'Times New Roman', Times, serif;
+}
 
-        header, footer {
-            background-color: grey;
-            color: black;
-            text-align: center;
-            padding: 10px;
-        }
 
-        main {
-            padding: 10px 0;
-        }
+header, footer {
+   background-color: grey;
+   color: blue;
+   text-align: center;
+   padding: 10px;
+}
 
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-gap: 10px;
-            width: 440px;
-            margin: auto;
-        }
 
-        .grid-item {
-            display: grid;
-            width: 100px;
-            height: 100px;
-            justify-content: center;
-            align-items: center;
-            background-color: gray;
-            cursor: pointer;
-        }
+main {
+   padding: 10px 0;
+}
 
-    </style>
+
+.grid-container {
+   display: grid;
+   grid-template-columns: repeat(4, 1fr);
+   grid-gap: 10px;
+   width:400px;
+   margin: auto;
+}
+
+
+.grid-item {
+   display: grid;
+   width: 100px;
+   height: 100px;
+   justify-content: center;
+   align-items: center;
+   background-color: gray;
+   color: blue;
+   cursor: pointer;
+}
+
+
+.button {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  justify-items: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+   </style>
 </head>
 <body>
-    <header>
-        <h1>5c22Memory match game</h1>       
-    </header>
-    <main>
-        <div class="grid-container" id="grid-container">
-            <div id="grid1" class="grid-item"></div>
-            <div id="grid2" class="grid-item"></div>
-            <div id="grid3" class="grid-item"></div>
-            <div id="grid4" class="grid-item"></div>
-            <div id="grid5" class="grid-item"></div>
-            <div id="grid6" class="grid-item"></div>
-            <div id="grid7" class="grid-item"></div>
-            <div id="grid8" class="grid-item"></div>
-            <div id="grid9" class="grid-item"></div>
-            <div id="grid10" class="grid-item"></div>
-            <div id="grid11" class="grid-item"></div>
-            <div id="grid12" class="grid-item"></div>
-            <div id="grid13" class="grid-item"></div>
-            <div id="grid14" class="grid-item"></div>
-            <div id="grid15" class="grid-item"></div>
-            <div id="grid16" class="grid-item"></div>
-        </div>
-        <h1 style="text-align:center;">Game message: </h1>
-        <button onclick="myFunction()">restart</button>
-    </main>
-    <footer>
-        <b>5c22Memory match game</b>
-    </footer>
-    <script>
-        const emojis = ["😀", "🥰", "😎", "🥳", "🤯", "🤩", "🥶", "🤓"];
-        const cards = [...emojis, ...emojis];
-        var matchCount = 0;
-        //const showcard = ["😀", "🥰", "😎", "🥳", "🤯", "🤩", "🥶", "🤓"];
-        function toggleGridSelection(event) {
-            var grid = event.target;
-            var matchCount = grid.getAttribute('data-click-count') || 0;
-            matchCount = parseInt(matchCount, 16);
-            grid.classList.remove('showcard');
-            switch (matchCount) {
-                case 0:
-                    grid.classList.add('showcard');
-                    break;
-                case 1:
-                    matchCount = -1;
-                    break;
-            }
+   <header>
+       <h1>memory-matching-game 5c22</h1>
+   </header>
+   <main>
+       <div id="grid-container" class="grid-container">
+           <div id="grid1" class="grid-item"></div>
+           <div id="grid2" class="grid-item"></div>
+           <div id="grid3" class="grid-item"></div>
+           <div id="grid4" class="grid-item"></div>
+          
+           <div id="grid5" class="grid-item"></div>
+           <div id="grid6" class="grid-item"></div>
+           <div id="grid7" class="grid-item"></div>
+           <div id="grid8" class="grid-item"></div>
 
+           <div id="grid9" class="grid-item"></div>
+           <div id="grid10" class="grid-item"></div>
+           <div id="grid11" class="grid-item"></div>
+           <div id="grid12" class="grid-item"></div>
+
+
+           <div id="grid13" class="grid-item"></div>
+           <div id="grid14" class="grid-item"></div>
+           <div id="grid15" class="grid-item"></div>
+           <div id="grid16" class="grid-item"></div>
+
+
+       </div>
+   </main>
+   <h1 style="text-align:center;">game message:</h1>
+   <button class="button">restart</button>
+   <footer>
+       <b>5C22可點擊網格01.30.2024</b>
+   </footer>
+   <script>
+    const emojis = ["😀", "🥰", "😎", "🥳", "🤯", "🤩", "🥶", "🤓","😀", "🥰", "😎", "🥳", "🤯", "🤩", "🥶", "🤓"];
+
+    function shuffleemojis() {
+        for (let i = emojis.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i+1));
+            [emojis[i], emojis[j]] =  [emojis[j], emojis[i]];
         }
-    </script>
+    }
+
+    //function gridblock() {
+        //const gridItem = document.getElementById("grid-item");
+        //shuffleemojis();
+
+        //for (let i = 0; i < emojis.length; i++) {
+            //const emojis = document.createElement("div");
+            //emojis.classList.add("emojis");
+            //emojis.textContent = " ";
+            //emojis.addEventListener("click", () => flip);
+        //}
+    //}
+
+    let flippedEmojis = [];
+    let matchedEmojis = 0;
+
+    function flipEmojis() {
+        if (flippedEmojis.length < 2 && !)
+    }
+   </script>
 </body>
 </html>
