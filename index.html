@@ -42,6 +42,7 @@ main {
    background-color: gray;
    color: blue;
    cursor: pointer;
+   overflow: hidden;
 }
 
 
@@ -57,6 +58,11 @@ main {
   margin: 4px 2px;
   cursor: pointer;
 }
+
+.yellow {
+    background-color: yellow;
+    visibility: hidden;
+}
    </style>
 </head>
 <body>
@@ -64,8 +70,8 @@ main {
        <h1>memory-matching-game 5c22</h1>
    </header>
    <main>
-       <div id="grid-container" class="grid-container">
-           <div id="grid1" class="grid-item"></div>
+    <div id="grid-container" class="grid-container">
+           <!--<div id="grid1" class="grid-item"></div>
            <div id="grid2" class="grid-item"></div>
            <div id="grid3" class="grid-item"></div>
            <div id="grid4" class="grid-item"></div>
@@ -84,7 +90,7 @@ main {
            <div id="grid13" class="grid-item"></div>
            <div id="grid14" class="grid-item"></div>
            <div id="grid15" class="grid-item"></div>
-           <div id="grid16" class="grid-item"></div>
+           <div id="grid16" class="grid-item"></div>-->
 
 
        </div>
@@ -95,33 +101,45 @@ main {
        <b>5C22可點擊網格01.30.2024</b>
    </footer>
    <script>
-    const emojis = ["😀", "🥰", "😎", "🥳", "🤯", "🤩", "🥶", "🤓","😀", "🥰", "😎", "🥳", "🤯", "🤩", "🥶", "🤓"];
-
-    function shuffleemojis() {
-        for (let i = emojis.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i+1));
-            [emojis[i], emojis[j]] =  [emojis[j], emojis[i]];
+       //array
+       //const emojis = ["😀", "🥰", "😎", "🥳", "🤯", "🤩", "🥶", "🤓"];
+       //varible
+       //const cards = [...emojis, ...emojis];
+       var clickCount = 0;
+       function toggleGridSelection(event) {
+        var grid = event.target;
+        //var clickCount = grid.getAttribute('data-click-count') || 0;
+        if(grid.textContent == "") {
+            switch(clickCount % 2) {
+                case 0:
+                    grid.textContent = "😀";
+                    break;
+                case 1:
+                    grid.textContent = "🥰";
+                    break;
+            }
+            clickCount += 1;
+            grid.setAttribute('data-click-count', clickCount.toString());
         }
-    }
-
-    //function gridblock() {
-        //const gridItem = document.getElementById("grid-item");
-        //shuffleemojis();
-
-        //for (let i = 0; i < emojis.length; i++) {
-            //const emojis = document.createElement("div");
-            //emojis.classList.add("emojis");
-            //emojis.textContent = " ";
-            //emojis.addEventListener("click", () => flip);
-        //}
-    //}
-
-    let flippedEmojis = [];
-    let matchedEmojis = 0;
-
-    function flipEmojis() {
-        if (flippedEmojis.length < 2 && !)
-    }
+        }
+        const gridSize = 4;
+	    const gridContainer = document.getElementById('grid-container');
+  	    gridContainer.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
+	    gridContainer.style.width = `${gridSize * 80 + (gridSize - 1) * 10}px`;
+        
+	    for (let i = 1; i <= gridSize * gridSize; i++) {
+		    const gridItem = document.createElement('div');
+		    gridItem.className = 'grid-item';
+		    gridContainer.appendChild(gridItem);
+	}
+        
+	
+    document.querySelectorAll('.grid-item').forEach(function (grid) {
+		grid.addEventListener('click', toggleGridSelection);
+	});
+       
+       
+    
    </script>
 </body>
 </html>
