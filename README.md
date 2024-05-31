@@ -40,3 +40,7 @@
 #### 新增計分器:
 - 當其中一個玩家隨機點擊第一個跟第二個區塊的圖案時是相同，並向那位玩家加分。
 - 當其中一個玩家隨機點擊第一個跟第二個區塊的圖案時是不相同，並向那位玩家扣分。
+### final presentation
+- https://docs.google.com/presentation/d/1-7rkhFMwbymeWRgw8kOvIHMvCk6pu8oF276IkNOCdgs/edit?usp=sharing
+### final memory matching game
+- https://replit.com/@WONG-YAT-YIYAT/Instagram-1#index.html
